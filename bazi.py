@@ -27,6 +27,7 @@ while i<8:
     Troncos.insert(i, MapaInput[i])
     i = i+2
     l = l+1
+
 l = 0
 i = 1
 Signos = []   
@@ -43,21 +44,18 @@ def elementot():
     # Atribuição de valor a cada signo
 
     while i<4:
-        if Troncos[i] == 1 or 2: #madeira
+        if Troncos[i] in [1,2]: #madeira
             mapa.madeira = mapa.madeira + 50
-            print(mapa.madeira)
-        elif Troncos[i] == 3 or 4: #fogo
+        elif Troncos[i] in [3, 4]: #fogo
             mapa.fogo = mapa.fogo + 50
-        elif Troncos[i] == 5 or 6: #terra
+        elif Troncos[i] == [5,6]: #terra
             mapa.terra = mapa.terra + 50
-        elif Troncos[i] == 7 or 8: #metal
+        elif Troncos[i] == [7,8]: #metal
             mapa.metal = mapa.metal + 50
-        elif Troncos[i] == 9 or 10: #agua
+        elif Troncos[i] in [9,10]: #agua
             mapa.agua = mapa.agua + 50
-        if mapa.agua>0:  
-            i= i+1
-        elif Troncos[i] == 9 or 10: #agua
-            mapa.agua = mapa.agua + 50
+        i = i+1
+    print(mapa.agua)
     i = 0
     print(mapa.agua)
     while i<4:
@@ -184,8 +182,9 @@ print(mapa.agua)
 print(mapa.madeira)
 
 
-"""def Tirarporcentagens (mapa):
-    Total = int(mapa.madeira) + int(mapa.fogo) # + mapa.terra + mapa.metal + mapa.agua
+
+def Tirarporcentagens (mapa):
+    Total = int(mapa.madeira) + int(mapa.fogo) + mapa.terra + mapa.metal + mapa.agua
     porcentagens = []
     porcentagens.insert(1, (mapa.madeira*100) / Total)
     porcentagens.insert(2, (mapa.fogo*100) / Total)
@@ -196,4 +195,4 @@ print(mapa.madeira)
 
 
 
-Tirarporcentagens(mapa)"""
+Tirarporcentagens(mapa)
